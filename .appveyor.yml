@@ -4,10 +4,9 @@ image: Visual Studio 2019
 
 # Установка зависимостей
 install:
-  #- ps: Install-Product python $env:PYTHON_VERSION x64
-  - python --version
-  - python -m pip install --upgrade pip
-  - python -m pip install -r requirements.txt
+  - python -m pip install --upgrade pip setuptools wheel
+  - pip install -r requirements.txt
+
 
 # Сборка отключена, т.к. для Python она не требуется
 build: off
