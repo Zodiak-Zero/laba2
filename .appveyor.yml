@@ -1,0 +1,33 @@
+version: 1.0.{build}
+image: Visual Studio 2019
+
+# Определение окружения
+environment:
+  PYTHON: "C:\\Python38"
+  PYTHON_VERSION: "3.8.10"
+  PIP_CACHE: "C:\\tools\\pip_cache"
+  FLASK_APP: "app.py"  # Используем основной файл приложения app.py
+
+# Установка зависимостей
+install:
+  - ps: Install-Product python $env:PYTHON_VERSION x64
+  - python --version
+  - python -m pip install --upgrade pip
+  - python -m pip install -r requirements.txt
+
+# Сборка отключена, т.к. для Python она не требуется
+build: off
+
+# Сценарии тестирования
+test_script:
+  - python -m unittest discover
+
+# Сценарий деплоя
+deploy_script:
+  - python app.py  # Запуск Flask-приложения через встроенный сервер
+  - echo "Deploy logic goes here"
+
+# Артефакты
+artifacts:
+  - path: static\uploads\
+    name: "uploads"
