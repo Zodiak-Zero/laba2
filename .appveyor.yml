@@ -1,26 +1,16 @@
-#version: 1.0.{build}
 image: Visual Studio 2019
 
+environment:
+  matrix:
+    - PYTHON: "C:\\Python39-x64"
 
-# Установка зависимостей
 install:
+  - set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
   - python -m pip install --upgrade pip setuptools wheel
+  - pip install --only-binary=:all: matplotlib
   - pip install -r requirements.txt
 
-
-# Сборка отключена, т.к. для Python она не требуется
 build: off
 
-# Сценарии тестирования
 test_script:
   - python -m unittest discover
-
-# Сценарий деплоя
-deploy_script:
-  - python app.py  # Запуск Flask-приложения через встроенный сервер
-  - echo "Deploy logic goes here"
-
-# Артефакты
-artifacts:
-  - path: static\uploads\
-    name: "uploads"
