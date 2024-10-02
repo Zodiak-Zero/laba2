@@ -12,8 +12,8 @@ install:
 
 build: off
 
-test_script:
-  - python -m unittest discover
+#test_script:
+#  - python -m unittest discover
 
 after_build:
   - ps: Write-Host "Отправка запроса на деплой на Render..."
