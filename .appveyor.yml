@@ -15,5 +15,5 @@ build: off
 test_script:
   - python -m unittest discover
 
-  after_build:
+after_build:
   - ps: Invoke-RestMethod -Uri "https://api.render.com/deploy/srv-cruhsitumphs73ennfh0?key=Wzrx5Xrj5dk" -Method Post
