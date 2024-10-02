@@ -10,11 +10,7 @@ install:
   - pip install --only-binary=:all: matplotlib
   - pip install -r requirements.txt
 
-# Установка режима сборки на Script
-build:
-  mode: script
-
-# Команды, которые будут выполняться в процессе сборки
+# Установите режим сборки на Script
 build_script:
   - echo "Skipping Visual Studio build, proceeding with script build."
 
