@@ -10,12 +10,14 @@ install:
   - pip install --only-binary=:all: matplotlib
   - pip install -r requirements.txt
 
-build:
-  mode: script  # Изменяем режим сборки на "script"
-  script: python app.py  # Указываем команду для запуска вашего приложения
+# Добавляем команду для сборки (если необходимо)
+before_build:
+  - echo "Skipping build step since there is no Visual Studio project."
 
+# Пропускаем тесты, если их нет
 test_script:
   - echo "Skipping tests..."
 
+# После успешной сборки
 after_build:
   - ps: Invoke-RestMethod -Uri "https://api.render.com/deploy/srv-cruo4n68ii6s739up3ag?key=fXIcrHycQlI" -Method Post
