@@ -2,3 +2,4 @@ Flask==2.0.1
 Flask-WTF==1.0.0
 Pillow==8.0.1
 matplotlib>=3.5.0
+gunicorn
