@@ -10,7 +10,7 @@ install:
   - pip install --only-binary=:all: matplotlib
   - pip install -r requirements.txt
 
-build: off
+#build: off
 
 #test_script:
 #  - python -m unittest discover
