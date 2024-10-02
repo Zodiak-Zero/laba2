@@ -16,4 +16,4 @@ test_script:
   - python -m unittest discover
 
 after_build:
-  - ps: Invoke-RestMethod -Uri "https://api.render.com/deploy/srv-cruhsitumphs73ennfh0?key=Wzrx5Xrj5dk" -Method Post
+  - ps: Invoke-RestMethod -Uri "https://api.render.com/deploy/srv-cruo4n68ii6s739up3ag?key=fXIcrHycQlI" -Method Post
