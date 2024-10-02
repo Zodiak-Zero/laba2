@@ -10,11 +10,12 @@ install:
   - pip install --only-binary=:all: matplotlib
   - pip install -r requirements.txt
 
-#build: off
+build:
+  mode: script  # Изменяем режим сборки на "script"
+  script: python app.py  # Указываем команду для запуска вашего приложения
 
-#test_script:
-#  - python -m unittest discover
+test_script:
+  - echo "Skipping tests..."
 
 after_build:
-  - ps: Write-Host "Отправка запроса на деплой на Render..."
   - ps: Invoke-RestMethod -Uri "https://api.render.com/deploy/srv-cruo4n68ii6s739up3ag?key=fXIcrHycQlI" -Method Post
