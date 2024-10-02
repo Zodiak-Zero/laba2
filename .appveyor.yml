@@ -10,11 +10,15 @@ install:
   - pip install --only-binary=:all: matplotlib
   - pip install -r requirements.txt
 
-# Добавляем команду для сборки (если необходимо)
-before_build:
-  - echo "Skipping build step since there is no Visual Studio project."
+# Установка режима сборки на Script
+build:
+  mode: script
 
-# Пропускаем тесты, если их нет
+# Команды, которые будут выполняться в процессе сборки
+build_script:
+  - echo "Skipping Visual Studio build, proceeding with script build."
+
+# Пропуск тестов, если их нет
 test_script:
   - echo "Skipping tests..."
 
